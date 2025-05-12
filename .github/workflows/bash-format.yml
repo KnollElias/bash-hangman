@@ -1,15 +1,34 @@
 name: bash‑format
+
 on:
-  push: { paths: ["**.sh"] }
-  pull_request: { paths: ["**.sh"] }
+  push:
+    paths: ["**.sh"]
+  pull_request:
+    paths: ["**.sh"]
+
 jobs:
   format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
+
+      - name: Install shfmt
+        run: |
           sudo apt-get update -qq
           sudo apt-get install -y shfmt
-      - run: |
+
+      - name: Verify formatting
+        shell: bash
+        run: |
+          # alle getrackten *.sh‑Dateien einsammeln
           mapfile -t files < <(git ls-files '*.sh')
-          shfmt -d "\${files[@]}"
+
+          # wenn keine Shell‑Skripte vorhanden sind, sauber beenden
+          if [[ ${#files[@]} -eq 0 ]]; then
+            echo "Repo enthält keine .sh‑Dateien – nichts zu formatieren."
+            exit 0
+          fi
+
+          # shfmt zeigt Diff; liefert Code 0 wenn alles ok,
+          # sonst 1 → Workflow schlägt fehl
+          shfmt -d "${files[@]}"
