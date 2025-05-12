@@ -6,6 +6,7 @@ source "$dir/drawings.sh"
 source "$dir/wordlist.sh"
 source "$dir/alphabet.sh"
 source "$dir/display.sh"
+source "$dir/endings.sh"
 
 secret="$(choose_word)"
 secret=${secret//$'\r'/}
@@ -21,7 +22,7 @@ while :; do
 
   # Eingabe
   while true; do
-    read -rp "Rate einen Buchstaben (a‑z): " -n1 ltr || {
+    read -rp "Rate einen Buchstaben (a-z): " -n1 ltr || {
       echo
       continue
     }

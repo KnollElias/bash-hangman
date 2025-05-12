@@ -1,5 +1,5 @@
 mistakes0(){
-    echo "Super! 👍Du hast das Wort erraten"
+    echo "Super! 👍 Du hast das Wort erraten"
 }
 mistakes1(){
     echo "Du kommst deinem Ziel immer näher"
