@@ -8,7 +8,7 @@ game_frame() {
     3) wrong3 ;; 4) wrong4 ;; 5) wrong5 ;;
     6)
       wrong6
-      echo "Du bist verhangen – das Wort war: $_secret"
+      echo "Du bist verhangen - das Wort war: $_secret"
       exit
       ;;
   esac
@@ -43,7 +43,7 @@ startup() {
   local _secret=$1
   clear
   echo
-  echo "Willkommen zu Hängemännchen!"
+  echo "Willkommen zu Hängmännli!"
   echo "Das Wort hat ${#_secret} Buchstaben."
   echo
 }

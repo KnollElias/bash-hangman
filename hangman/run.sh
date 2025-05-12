@@ -28,7 +28,7 @@ while :; do
     }
     echo
     [[ "$ltr" =~ [A-Za-z] ]] || {
-      echo "Bitte Buchstabe."
+      echo "Bitte gib einen Buchstaben ein."
       continue
     }
     ltr=${ltr,,}
