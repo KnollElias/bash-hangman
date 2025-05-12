@@ -1,4 +1,3 @@
-# .github/workflows/auto-format-test.yml
 name: Auto-Format & Test
 
 on:
@@ -7,9 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write      # ← grants write access for GITHUB_TOKEN
+
 jobs:
   format-and-test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,10 +27,7 @@ jobs:
       - name: Format shell scripts
         shell: bash
         run: |
-          # shfmt mit canonical indent, simplify, rewrite flags
           shfmt -w -ci -sr .
-
-          # Tabs in 2 Spaces umwandeln
           find . -type f -name '*.sh' -exec sed -i 's/\t/  /g' {} \;
 
       - name: Run test suite
@@ -39,7 +39,6 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          # Falls es Änderungen gibt, commit + push
           if ! git diff --cached --quiet; then
             git commit -m "chore: auto-format shell scripts"
             git push
