@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$dir/drawings.sh"
 source "$dir/wordlist.sh"
 source "$dir/alphabet.sh"
@@ -10,30 +10,39 @@ source "$dir/display.sh"
 secret="$(choose_word)"
 secret=${secret//$'\r'/}
 
-guessed_ok=() 
-guessed_bad=() 
+guessed_ok=()
+guessed_bad=()
 wrongstate=0
 
 startup "$secret"
 
 while :; do
-	game_frame guessed_ok guessed_bad "$wrongstate" "$secret"
+  game_frame guessed_ok guessed_bad "$wrongstate" "$secret"
 
   # Eingabe
   while true; do
-    read -rp "Rate einen Buchstaben (a‑z): " -n1 ltr || { echo; continue; }
+    read -rp "Rate einen Buchstaben (a‑z): " -n1 ltr || {
+      echo
+      continue
+    }
     echo
-    [[ "$ltr" =~ [A-Za-z] ]] || { echo "Bitte Buchstabe."; continue; }
+    [[ "$ltr" =~ [A-Za-z] ]] || {
+      echo "Bitte Buchstabe."
+      continue
+    }
     ltr=${ltr,,}
-    [[ " ${guessed_ok[*]} ${guessed_bad[*]} " == *" $ltr "* ]] \
-        && { echo "Schon geraten."; continue; }
+    [[ " ${guessed_ok[*]} ${guessed_bad[*]} " == *" $ltr "* ]] &&
+      {
+        echo "Schon geraten."
+        continue
+      }
     break
   done
 
   if [[ "$secret" == *"$ltr"* ]]; then
-      guessed_ok+=("$ltr")
+    guessed_ok+=("$ltr")
   else
-      guessed_bad+=("$ltr")
-      ((wrongstate++))
+    guessed_bad+=("$ltr")
+    ((wrongstate++))
   fi
 done

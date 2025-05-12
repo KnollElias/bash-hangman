@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 wordfile="$dir/wordlist_de.txt"
 
-init_wordfile(){
+init_wordfile() {
   [[ -s "$wordfile" ]] && return
-  cat >"$wordfile"<<'LIST'
+  cat > "$wordfile" << 'LIST'
 apfel
 birne
 banane
@@ -84,13 +84,13 @@ LIST
 }
 
 choose_word() {
-	init_wordfile
-	local w=""
-	# so lange wiederholen, bis wir wirklich ein nicht‑leeres Wort haben
-	while [[ -z "$w" ]]; do
-		w=$(shuf -n1 "$wordfile" | tr -d '\r\n')
-	done
-	# einmalig anhängen, falls neu (nice‑to‑have)
-	grep -qxF "$w" "$wordfile" || echo "$w" >> "$wordfile"
-	echo "$w"
+  init_wordfile
+  local w=""
+  # so lange wiederholen, bis wir wirklich ein nicht‑leeres Wort haben
+  while [[ -z "$w" ]]; do
+    w=$(shuf -n1 "$wordfile" | tr -d '\r\n')
+  done
+  # einmalig anhängen, falls neu (nice‑to‑have)
+  grep -qxF "$w" "$wordfile" || echo "$w" >> "$wordfile"
+  echo "$w"
 }
