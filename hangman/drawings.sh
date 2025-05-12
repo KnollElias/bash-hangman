@@ -70,9 +70,6 @@ ___|______________
 ART
 }
 
-# ------------------------------------------------------------------
-# zeigt _ _ _  bzw. bereits erratene Buchstaben
-# benötigt die globalen Variablen $secret und array $guessed
 display(){
    local out=""
    for ((i=0;i<${#secret}; i++)); do
@@ -82,7 +79,7 @@ display(){
    echo "$out"
 }
 
-mask_word() {                    # statt display()
+mask_word() {               
    local out=""
    for ((i=0;i<${#secret}; i++)); do
       ch="${secret:i:1}"

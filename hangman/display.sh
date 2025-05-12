@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-game_frame() {               # $1 ok‑Name, $2 bad‑Name, $3 wrong, $4 secret
+game_frame() {         
   local ok_name=$1 bad_name=$2 _wrong=$3 _secret=$4
 
   clear
