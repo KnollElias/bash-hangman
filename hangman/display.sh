@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
-game_frame() {                 # 4 Argumente: Namen, Fehler, Wort
-  local ok_name=$1
-  local bad_name=$2
-  local _wrong=$3
-  local _secret=$4
+game_frame() {               # $1 ok‑Name, $2 bad‑Name, $3 wrong, $4 secret
+  local ok_name=$1 bad_name=$2 _wrong=$3 _secret=$4
 
   clear
   case $_wrong in
@@ -13,15 +10,21 @@ game_frame() {                 # 4 Argumente: Namen, Fehler, Wort
   esac
 
   echo
-  local mask
-  mask=$(mask_word)               # nutzt Globals
+  local mask; mask=$(mask_word)
   echo "Wort: $mask"
   echo
 
   [[ "$mask" != *"_"* ]] && { echo "Du hast gewonnen!"; exit; }
 
-  alphabet_block "$ok_name" "$bad_name"   # << richtige Übergabe
+  alphabet_block "$ok_name" "$bad_name"
   echo
 }
 
-startup() { … unverändert … }
+startup() {
+  local _secret=$1
+  clear
+  echo
+  echo "Willkommen zu Hängemännchen!"
+  echo "Das Wort hat ${#_secret} Buchstaben."
+  echo
+}
