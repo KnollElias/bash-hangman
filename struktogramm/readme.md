@@ -1,0 +1,1 @@
+Created with: https://struktog.openpatch.org/#pako:eNotzEEKwyAUhOG7zFoXUZuI-y66Kb1Cqs8qvMSSCKEE714L3Q7f_CeWEojhTuQAh2mO1iptpZ_sU1qjvFQ6kpzJXCINAQL186Yub-tOW733d99iYS7HlWmhtf5if_Tg2VMqHGhDawKJ8it1oI3AkUNNcOMwti_WwCpE
