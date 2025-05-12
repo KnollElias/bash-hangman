@@ -1,34 +1,48 @@
-name: bash‑format
+# .github/workflows/auto-format-test.yml
+name: Auto-Format & Test
 
 on:
   push:
-    paths: ["**.sh"]
+    branches: [ main ]
   pull_request:
-    paths: ["**.sh"]
+    branches: [ main ]
 
 jobs:
-  format:
+  format-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # erlaubt später git push
 
       - name: Install shfmt
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y shfmt
 
-      - name: Verify formatting
+      - name: Format shell scripts
         shell: bash
         run: |
-          # alle getrackten *.sh‑Dateien einsammeln
-          mapfile -t files < <(git ls-files '*.sh')
+          # shfmt mit canonical indent, simplify, rewrite flags
+          shfmt -w -ci -sr .
 
-          # wenn keine Shell‑Skripte vorhanden sind, sauber beenden
-          if [[ ${#files[@]} -eq 0 ]]; then
-            echo "Repo enthält keine .sh‑Dateien – nichts zu formatieren."
-            exit 0
+          # Tabs in 2 Spaces umwandeln
+          find . -type f -name '*.sh' -exec sed -i 's/\t/  /g' {} \;
+
+      - name: Run test suite
+        run: bash hangman/tests/run-tests.sh
+
+      - name: Commit formatted code
+        shell: bash
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          # Falls es Änderungen gibt, commit + push
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: auto-format shell scripts"
+            git push
+          else
+            echo "Nothing to commit, all scripts already formatted."
           fi
-
-          # shfmt zeigt Diff; liefert Code 0 wenn alles ok,
-          # sonst 1 → Workflow schlägt fehl
-          shfmt -d "${files[@]}"
