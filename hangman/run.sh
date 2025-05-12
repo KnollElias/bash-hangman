@@ -10,8 +10,8 @@ source "$dir/display.sh"
 secret="$(choose_word)"
 secret=${secret//$'\r'/}
 
-guessed_ok=()       # richtige
-guessed_bad=()      # falsche
+guessed_ok=() 
+guessed_bad=() 
 wrongstate=0
 
 startup "$secret"
