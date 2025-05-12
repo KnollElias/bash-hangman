@@ -1,18 +1,18 @@
-mistakes0() {
-  echo "Super! 👍 Du hast das Wort ohne Fehler erraten."
+mistakes0(){
+    echo "Perfekt! 👍 Du hast das Wort ohne Fehler erraten."
 }
-mistakes1() {
-  echo "Wegen diesem einen Fehler bist du es Wert, zu sterben."
+mistakes1(){
+    echo "Wegen dieses einen Fehlers hast du es leider nicht fehlerfrei geschafft."
 }
-mistakes2() {
-  echo "Das kannst du besser!"
+mistakes2(){
+    echo "Das kannst du mit weniger Fehlern!"
 }
-mistakes3() {
-  echo "Dranbleiben, Übungm macht den Meister schon."
+mistakes3(){
+    echo "Geschafft, aber mit vielen Fehlern. Übung macht den Meister."
 }
-mistakes4() {
-  echo "Wenn du nochmal so ein Ergebnis erzielst, bist du es nicht mehr Wert, dieses Spiel zu spielen. 😡"
+mistakes4(){
+    echo "Wenn du nochmal so viele Fehler machst, wird es aber knapp. 😡"
 }
-mistakes5() {
-  echo "Kopf hoch, das war nicht das Ende"
+mistakes5(){
+    echo "Kopf hoch, das war nicht das Ende."
 }
