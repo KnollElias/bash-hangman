@@ -1,0 +1,372 @@
+{
+  "id": "6d0d3d22-c980-0942-440e-39b04d63",
+  "type": "InsertNode",
+  "followElement": {
+    "id": "50794fd0-9845-47cc-ed97-176f9b84",
+    "type": "HeadLoopNode",
+    "text": "Gültigkeitsbedingung",
+    "followElement": {
+      "id": "0db340b6-1106-04b9-602a-7c402ee2",
+      "type": "InsertNode",
+      "followElement": {
+        "id": "abb0a701-4ee1-7ecf-7d73-4a70c3ad",
+        "type": "FunctionNode",
+        "text": "you_won()",
+        "parameters": [],
+        "followElement": {
+          "id": "b90d3738-3bbe-0e6d-fe39-7afbd9ca",
+          "type": "InsertNode",
+          "followElement": {
+            "id": "2fd87be4-b591-4995-7942-4c81af07",
+            "type": "FunctionNode",
+            "text": "change_hangman_looks",
+            "parameters": [],
+            "followElement": {
+              "id": "ce9df288-9ac8-5672-6f7e-24a4d0cd",
+              "type": "InsertNode",
+              "followElement": {
+                "id": "37ec2cd8-8183-860c-59c0-9d5be749",
+                "type": "FunctionNode",
+                "text": "you_lost",
+                "parameters": [],
+                "followElement": {
+                  "id": "25019fb4-dac4-8d7e-51f7-8ee3b8e6",
+                  "type": "InsertNode",
+                  "followElement": {
+                    "id": "3391a306-1df9-4b09-7639-55fc3d37",
+                    "type": "TaskNode",
+                    "text": "count_wrong_input=0",
+                    "followElement": {
+                      "id": "dc409f61-a4e4-243f-9506-2e899649",
+                      "type": "InsertNode",
+                      "followElement": {
+                        "id": "a7eeafa2-fdaa-48a9-8909-a3eb5cad",
+                        "type": "FunctionNode",
+                        "text": "handle_wrong_input",
+                        "parameters": [
+                          { "pos": "24", "parName": "number" },
+                          { "pos": "0", "parName": "number" },
+                          { "pos": "3", "parName": "" }
+                        ],
+                        "followElement": {
+                          "id": "9818ae76-c82b-ce45-0e89-4a3d545f",
+                          "type": "InsertNode",
+                          "followElement": {
+                            "id": "e160e91b-829b-3fa6-221e-8e751117",
+                            "type": "FunctionNode",
+                            "text": "user_input",
+                            "parameters": [],
+                            "followElement": {
+                              "id": "02b24446-9147-93b5-1acc-df34c1a3",
+                              "type": "InsertNode",
+                              "followElement": {
+                                "id": "00b48d48-a263-0994-555b-ee12081c",
+                                "type": "FunctionNode",
+                                "text": "procces_user_input",
+                                "parameters": [
+                                  { "pos": "21", "parName": "input" }
+                                ],
+                                "followElement": {
+                                  "id": "ab49191f-488c-47da-0bdb-a4383dcc",
+                                  "type": "InsertNode",
+                                  "followElement": {
+                                    "id": "9732086e-c6f6-5509-89df-0fc19dc8",
+                                    "type": "FunctionNode",
+                                    "text": "create_word",
+                                    "parameters": [],
+                                    "followElement": {
+                                      "id": "c6ea0463-edaa-9f9a-4387-acb5b0b3",
+                                      "type": "InsertNode",
+                                      "followElement": {
+                                        "id": "8b69f6f8-df3a-b824-5009-87c7e1f1",
+                                        "type": "FunctionNode",
+                                        "text": "create_environment",
+                                        "parameters": [],
+                                        "followElement": {
+                                          "id": "9bec1dae-878f-3adc-058b-47fb4ef3",
+                                          "type": "InsertNode",
+                                          "followElement": null
+                                        },
+                                        "child": {
+                                          "id": "d6abe9f7-fa85-71fa-4803-90a632f9",
+                                          "type": "InsertNode",
+                                          "followElement": {
+                                            "id": "3f58e0dd-4955-371f-30dd-40c78639",
+                                            "type": "TaskNode",
+                                            "text": "cat base_env.txt",
+                                            "followElement": {
+                                              "id": "aa282843-7b4c-a4a9-1b4b-fb0bf27a",
+                                              "type": "InsertNode",
+                                              "followElement": null
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "child": {
+                                      "id": "3415b542-7921-1b61-092b-6cf4bd0b",
+                                      "type": "InsertNode",
+                                      "followElement": {
+                                        "id": "c25f72a3-703b-c40b-7331-2ea4d0f9",
+                                        "type": "TaskNode",
+                                        "text": "wordlist=word.txt",
+                                        "followElement": {
+                                          "id": "21177c66-c28e-ff1a-ea44-d4861b3b",
+                                          "type": "InsertNode",
+                                          "followElement": {
+                                            "id": "bb50afca-43b9-d246-84b6-e4d5fd2a",
+                                            "type": "TaskNode",
+                                            "text": "length= wc -l wordllist",
+                                            "followElement": {
+                                              "id": "331639dc-1ba6-dc47-fc23-a38fe13f",
+                                              "type": "InsertNode",
+                                              "followElement": {
+                                                "id": "c899eb0e-54c5-7396-6a4c-81ec13aa",
+                                                "type": "TaskNode",
+                                                "text": "random=get random line from wordlist",
+                                                "followElement": {
+                                                  "id": "7cdbb89d-7912-0ddf-e9db-535feee0",
+                                                  "type": "InsertNode",
+                                                  "followElement": null
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "child": {
+                                  "id": "e4a9567b-d5f2-ee0d-d881-1861cc8b",
+                                  "type": "InsertNode",
+                                  "followElement": {
+                                    "id": "97c4a304-6e31-6f3e-cb57-519a9a21",
+                                    "type": "BranchNode",
+                                    "text": "input = word",
+                                    "followElement": {
+                                      "id": "567bc0a5-512f-b626-3a0a-ca38573b",
+                                      "type": "InsertNode",
+                                      "followElement": null
+                                    },
+                                    "trueChild": {
+                                      "id": "8c08f68f-ee10-efe5-23d3-73aa0809",
+                                      "type": "InsertNode",
+                                      "followElement": {
+                                        "id": "178ee55a-d7e5-b882-c7e6-d2ccc7f0",
+                                        "type": "OutputNode",
+                                        "text": "you_won()",
+                                        "followElement": {
+                                          "id": "9f073149-a8d5-1c19-0ee5-55cc628d",
+                                          "type": "InsertNode",
+                                          "followElement": null
+                                        }
+                                      }
+                                    },
+                                    "falseChild": {
+                                      "id": "12320f7f-209a-fd1d-c91f-971e2689",
+                                      "type": "InsertNode",
+                                      "followElement": {
+                                        "id": "e2dcdcaf-da13-b102-7abd-35c14a29",
+                                        "type": "TaskNode",
+                                        "text": "handle_wrong_input()",
+                                        "followElement": {
+                                          "id": "b50ea3d2-c90e-d299-37a7-336bb1bf",
+                                          "type": "InsertNode",
+                                          "followElement": null
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "child": {
+                              "id": "c61087e4-79f3-5dff-14f3-f57129a7",
+                              "type": "InsertNode",
+                              "followElement": {
+                                "id": "96839714-6b13-61a5-3ae7-de71dff9",
+                                "type": "OutputNode",
+                                "text": "read -p \"please enter a word\" input",
+                                "followElement": {
+                                  "id": "2d59e9a5-2d07-f8e3-4041-bd667307",
+                                  "type": "InsertNode",
+                                  "followElement": {
+                                    "id": "03d64384-216a-a05a-0123-513a2417",
+                                    "type": "TaskNode",
+                                    "text": "procces_user_input(input)",
+                                    "followElement": {
+                                      "id": "1ba7d432-9d49-a27d-0988-6493bffa",
+                                      "type": "InsertNode",
+                                      "followElement": null
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "child": {
+                          "id": "081625fc-0490-f5c2-53f6-3392738d",
+                          "type": "InsertNode",
+                          "followElement": {
+                            "id": "f4b202f0-b254-89c6-f07b-61da3569",
+                            "type": "TaskNode",
+                            "text": "Deine Eingabe ist falsch",
+                            "followElement": {
+                              "id": "99a3a17f-217b-fd74-7a04-c36965db",
+                              "type": "InsertNode",
+                              "followElement": {
+                                "id": "9d1e1358-baa3-a55b-0e95-ede0deaa",
+                                "type": "TaskNode",
+                                "text": "count_wrong_input+=1",
+                                "followElement": {
+                                  "id": "681f5d82-e491-3e15-3b74-2bc42415",
+                                  "type": "InsertNode",
+                                  "followElement": {
+                                    "id": "9cd5f591-a981-f15f-e2a4-a61a700b",
+                                    "type": "BranchNode",
+                                    "text": "Bedingung",
+                                    "followElement": {
+                                      "id": "cb9812e8-f164-8366-63d4-0d960ecb",
+                                      "type": "InsertNode",
+                                      "followElement": {
+                                        "id": "74437265-79ed-ad4e-d661-3d3dd03b",
+                                        "type": "TaskNode",
+                                        "text": "change_hangman_looks()",
+                                        "followElement": {
+                                          "id": "546f8001-5195-d00d-d64b-4bcd8955",
+                                          "type": "InsertNode",
+                                          "followElement": null
+                                        }
+                                      }
+                                    },
+                                    "trueChild": {
+                                      "id": "a58571af-ff49-7493-029e-71fb30bf",
+                                      "type": "InsertNode",
+                                      "followElement": {
+                                        "id": "5f448dc5-8f40-01be-2f9e-9ecb46aa",
+                                        "type": "OutputNode",
+                                        "text": "echo $\"You still have ((6 - count_wrong_input)) attempts\"",
+                                        "followElement": {
+                                          "id": "bf59aee8-9eb4-be33-91d0-71ae9200",
+                                          "type": "InsertNode",
+                                          "followElement": null
+                                        }
+                                      }
+                                    },
+                                    "falseChild": {
+                                      "id": "47fdcd46-f10d-1ff0-38c3-c873debc",
+                                      "type": "InsertNode",
+                                      "followElement": { "type": "Placeholder" }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "child": {
+                  "id": "28706809-4976-4f32-3e44-c7f2e918",
+                  "type": "InsertNode",
+                  "followElement": {
+                    "id": "0784007b-f45e-3a37-3d6c-3b9829e9",
+                    "type": "OutputNode",
+                    "text": "Du hast zu viele Versuche gebraucht",
+                    "followElement": {
+                      "id": "a610d36c-2679-5bb3-1b72-700b3a0e",
+                      "type": "InsertNode",
+                      "followElement": {
+                        "id": "9baaced2-3645-c73f-9bc8-e0f12d9d",
+                        "type": "TaskNode",
+                        "text": "exit 0",
+                        "followElement": {
+                          "id": "0a019865-21ba-4af7-f61b-d263469a",
+                          "type": "InsertNode",
+                          "followElement": null
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "child": {
+              "id": "9eb9e2f4-e63f-8d7b-f8be-34ab3519",
+              "type": "InsertNode",
+              "followElement": {
+                "id": "625c9661-4930-6e8d-f66b-9fa78cf1",
+                "type": "TaskNode",
+                "text": "changing the apperance",
+                "followElement": {
+                  "id": "d780278a-0274-eec5-206e-83450e72",
+                  "type": "InsertNode",
+                  "followElement": {
+                    "id": "38123f63-8ed2-8715-907d-3b1c24ae",
+                    "type": "TaskNode",
+                    "text": "Anweisung",
+                    "followElement": {
+                      "id": "72ab98f1-69fb-b82b-4444-2fb54c28",
+                      "type": "InsertNode",
+                      "followElement": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "child": {
+          "id": "75074416-1d27-4163-1ef9-38cf9fd4",
+          "type": "InsertNode",
+          "followElement": {
+            "id": "a3569734-7671-ca59-2cfa-e7411443",
+            "type": "OutputNode",
+            "text": "echo you won ",
+            "followElement": {
+              "id": "f18f6244-a702-9856-2b5c-ba8aefbd",
+              "type": "InsertNode",
+              "followElement": null
+            }
+          }
+        }
+      }
+    },
+    "child": {
+      "id": "be9dc39f-9f08-43c6-9bed-4484a902",
+      "type": "InsertNode",
+      "followElement": {
+        "id": "584516e4-b836-10d3-80f6-363b7bb1",
+        "type": "TaskNode",
+        "text": "create_environment()",
+        "followElement": {
+          "id": "ff12a5cd-162a-fbe9-67c3-abf02059",
+          "type": "InsertNode",
+          "followElement": {
+            "id": "95e7f1fc-4bba-5793-48e2-88b57874",
+            "type": "TaskNode",
+            "text": "create_world()",
+            "followElement": {
+              "id": "6ef55046-62be-a5df-873e-fff0669f",
+              "type": "InsertNode",
+              "followElement": {
+                "id": "91d03020-ef04-f653-e422-dded768f",
+                "type": "TaskNode",
+                "text": "user_input()",
+                "followElement": {
+                  "id": "c4c2e082-d74d-6cdc-3a28-4adfe60c",
+                  "type": "InsertNode",
+                  "followElement": null
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
