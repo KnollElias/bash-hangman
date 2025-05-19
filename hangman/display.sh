@@ -47,5 +47,5 @@ display_startup() {
   echo "Willkommen zu Hangman!"
   echo "Das Wort hat ${#_secret} Buchstaben."
   echo
-  sleep 4
+  sleep 3.3
 }
