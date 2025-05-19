@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-game_frame() {
+display_game_frame() {
   local ok_name=$1 bad_name=$2 _wrong=$3 _secret=$4
 
   clear
@@ -40,11 +40,12 @@ game_frame() {
   echo
 }
 
-startup() {
+display_startup() {
   local _secret=$1
   clear
   echo
-  echo "Willkommen zu Hängmännli!"
+  echo "Willkommen zu Hangman!"
   echo "Das Wort hat ${#_secret} Buchstaben."
   echo
+  sleep 4
 }

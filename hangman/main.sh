@@ -15,10 +15,10 @@ guessed_ok=()
 guessed_bad=()
 wrongstate=0
 
-startup "$secret"
+display_startup "$secret"
 
 while :; do
-  game_frame guessed_ok guessed_bad "$wrongstate" "$secret"
+  display_game_frame guessed_ok guessed_bad "$wrongstate" "$secret"
 
   # Eingabe
   while true; do
