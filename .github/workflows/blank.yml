@@ -20,7 +20,7 @@ jobs:
 
       - name: Compile Bash script to binary
         run: |
-          shc -f dein_script.sh
+          shc -f main.sh
           mv dein_script.sh.x bash_program_linux
 
       - name: Upload binary as artifact
