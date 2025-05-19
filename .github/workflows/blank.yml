@@ -1,0 +1,30 @@
+name: Convert Bash to Executable
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install shc
+        run: sudo apt-get install -y shc
+
+      - name: Make script executable
+        run: chmod +x main.sh
+
+      - name: Compile Bash script to binary
+        run: |
+          shc -f main.sh
+          mv dein_script.sh.x bash_program_linux
+
+      - name: Upload binary as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: bash-binary
+          path: bash_program_linux
