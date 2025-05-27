@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -euo pipefail # quits the script in case of failure, pulls an error in case of not setted variables, 
+# makes the entire pipeline fail in case of failure. 
+
+
 cd "$(dirname "$0")"
 
 failed=0
