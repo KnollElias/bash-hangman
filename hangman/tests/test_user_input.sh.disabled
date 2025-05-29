@@ -1,0 +1,56 @@
+#! /bin/bash
+
+set -euo pipefail 
+
+
+source "$(dirname "$0")/../main.sh" 
+
+process_guess 
+
+
+
+
+
+secret="Hund"
+ltr="u" 
+
+
+
+#guessed_ok=()
+##guessed_bad=()
+
+
+#echo $secret
+#echo $ltr
+
+
+
+
+echo ${#guessed_ok[@]}
+echo ${guessed_bad[@]}
+
+
+
+for i in "${!guessed_ok[@]}"; do
+  printf "[%s] => '%s'\n" "$i" "${guessed_ok[$i]}"
+done
+
+
+
+if [[ "$secret" == *"$ltr"* ]]; then 
+
+[[ " ${guessed_ok[*]} " == *" $ltr"* ]]  #checking, if the letter gets to the array the letter is in the secret and if its the first guess.  
+
+
+
+
+fi
+
+
+
+
+
+
+
+
+
