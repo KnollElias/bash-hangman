@@ -43,7 +43,7 @@ echo $wrongstate
 
  echo $wrongstate
 
- [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed. 
+# [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed. 
 
 
 

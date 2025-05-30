@@ -7,7 +7,7 @@ source "$(dirname "$0")/../alphabet.sh"
 lines=$(alphabet_block guessed_ok guessed_bad | wc -l)
 
 
-echo $lines
+#echo $lines
 
 [[ "$lines" -eq 3 ]]
 
