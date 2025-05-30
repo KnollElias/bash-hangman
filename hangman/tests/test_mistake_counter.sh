@@ -16,14 +16,14 @@ local secret="Apfelsaft"
 
 mistake_countin "a" "$secret" guessed_ok guessed_bad wrongstate 
 
-echo $wrongstate
+#echo $wrongstate
 
 [[ $wrongstate == 0 ]] &&  echo succes 
 echo 
 
 
 # test 2 
-echo hier tuts
+#echo hier tuts
 
 
 
@@ -33,7 +33,7 @@ set +e
 
 mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
 
-echo $wrongstate
+#echo $wrongstate
 
 [[ $wrongstate == 1 ]] || exit 1
 
@@ -41,7 +41,7 @@ echo $wrongstate
 
  mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
 
- echo $wrongstate
+# echo $wrongstate
 
 # [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed. 
 

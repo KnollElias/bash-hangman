@@ -1,6 +1,34 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
+
+
+
+  mistake_countin(){
+
+ local ltr=$1
+ local secret=$2
+ local -n ok_ref=$3
+ local -n bad_ref=$4
+ local -n wrong_ref=$5
+
+
+   if [[ "$secret" == *"$ltr"* ]]; then
+       ok_ref+=("$ltr")
+     else
+
+       bad_ref+=("$ltr")
+       ((wrong_ref++))
+  fi
+  }
+
+
+
+
+
+
+initialising(){
+
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$dir/drawings.sh"
 source "$dir/wordlist.sh"
@@ -40,10 +68,40 @@ while :; do
     break
   done
 
-  if [[ "$secret" == *"$ltr"* ]]; then
-    guessed_ok+=("$ltr")
-  else
-    guessed_bad+=("$ltr")
-    ((wrongstate++))
-  fi
+
+
+mistake_countin "$ltr" "$secret" guessed_ok guessed_bad wrongstate
+
 done
+
+
+
+#mistake_countin "$ltr" "$secret" guessed_ok guessed_bad wrongstate
+
+
+}
+
+
+
+
+
+
+
+
+
+
+main(){
+
+initialising
+#mistake_countin $"ltr" "$secret" guessed_ok guessed_bad wrongstate
+}
+
+
+
+
+
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+main
+fi 
+
+
