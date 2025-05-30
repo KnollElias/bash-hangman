@@ -31,7 +31,7 @@ jobs:
           find . -type f -name '*.sh' -exec sed -i 's/\t/  /g' {} \;
 
       - name: Run test suite
-        run: bash hangman/tests/run-tests.sh
+        run: TERM=xterm bash hangman/tests/run-tests.sh
 
       - name: Commit formatted code
         shell: bash
