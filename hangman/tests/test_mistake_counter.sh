@@ -4,61 +4,44 @@ set -uoe pipefail
 
 source "$(dirname "$0")/../main.sh"
 
-test_mistake_countin(){
+test_mistake_countin() {
 
-local guessed_ok=()
-local guessed_bad=()
-local wrongstate=0
-local secret="Apfelsaft"
+  local guessed_ok=()
+  local guessed_bad=()
+  local wrongstate=0
+  local secret="Apfelsaft"
 
+  # test 1
 
-# test 1
+  mistake_countin "a" "$secret" guessed_ok guessed_bad wrongstate
 
-mistake_countin "a" "$secret" guessed_ok guessed_bad wrongstate 
+  #echo $wrongstate
 
-#echo $wrongstate
+  [[ $wrongstate == 0 ]] && echo succes
+  echo
 
-[[ $wrongstate == 0 ]] &&  echo succes 
-echo 
+  # test 2
+  #echo hier tuts
 
+  set +e
 
-# test 2 
-#echo hier tuts
+  mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
 
+  #echo $wrongstate
 
+  [[ $wrongstate == 1 ]] || exit 1
 
+  mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
 
- 
-set +e
+  # echo $wrongstate
 
-mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
-
-#echo $wrongstate
-
-[[ $wrongstate == 1 ]] || exit 1
-
-
-
- mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
-
-# echo $wrongstate
-
-# [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed. 
-
-
-
-
+  # [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed.
 
 }
 
-
 test_mistake_countin
 
-
-
-#mistake_countin "B" "Buchstabe" 
-
-
+#mistake_countin "B" "Buchstabe"
 
 #echo ${#guessed_bad[@]}
 
