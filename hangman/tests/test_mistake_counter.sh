@@ -17,7 +17,7 @@ test_mistake_countin() {
 
   #echo $wrongstate
 
-  [[ $wrongstate == 0 ]] && echo succes
+  [[ $wrongstate == 0 ]] 
   echo
 
   # test 2
