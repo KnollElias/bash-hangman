@@ -87,6 +87,9 @@ display() {
 }
 
 mask_word() {
+
+local secret=$1
+
   local out=""
   for ((i = 0; i < ${#secret}; i++)); do
     ch="${secret:i:1}"

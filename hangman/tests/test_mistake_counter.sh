@@ -41,9 +41,9 @@ mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
 
  mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
 
-# echo $wrongstate
+ echo $wrongstate
 
-# [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed. 
+ [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed. 
 
 
 
