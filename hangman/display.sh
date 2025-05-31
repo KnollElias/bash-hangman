@@ -46,7 +46,7 @@ _wrong=$1 _secret=$2
       0) mistakes0 ;;
       1) mistakes1 ;;
       2) mistakes2 ;;
-      3)mistakes3 ;;
+      3) mistakes3 ;;
       4) mistakes4 ;;
       5) mistakes5 ;;
       *)

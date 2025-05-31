@@ -33,7 +33,6 @@ test_mistake_countin() {
 
   mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
 
-<<<<<<< HEAD
  
 set +e
 
@@ -49,13 +48,10 @@ mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
 
  echo $wrongstate
 
- [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed. 
+# [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed. 
 
 
 
-=======
-  # echo $wrongstate
->>>>>>> 378e0ee397f45f59a4718cb6188cec10c915487d
 
   # [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed.
 
