@@ -72,11 +72,13 @@ _wrong=$1 _secret=$2
 
 
   if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
-  echo $output"
+  echo "$output"
   fi
 
 
     
+
+
 
 
     return
