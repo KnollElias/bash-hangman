@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 alphabet_block() {
+
+
+
+
   local ok_name=$1 bad_name=$2
+
+  #echo "ok name '$ok_name'"
+
   local -n ok_arr=$ok_name bad_arr=$bad_name
 
   local l i=0

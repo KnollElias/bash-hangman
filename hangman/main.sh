@@ -34,10 +34,15 @@ initialising() {
   guessed_bad=()
   wrongstate=0
 
+  echo "main wrongstate: '$wrongstate'"
+
   display_startup "$secret"
 
   while :; do
-    display_game_frame guessed_ok guessed_bad "$wrongstate" "$secret"
+    display_game_frame "$wrongstate" "$secret" "guessed_ok" "guessed_bad"
+
+
+    
 
     # Eingabe
     while true; do
@@ -51,7 +56,7 @@ initialising() {
         continue
       }
       ltr=${ltr,,}
-      [[ " ${guessed_ok[*]} ${guessed_bad[*]} " == *" $ltr "* ]] &&
+      [[ " ${guessed_ok[@]} ${guessed_bad[@]} " == *" $ltr "* ]] &&
         {
           echo "Schon geraten."
           continue
