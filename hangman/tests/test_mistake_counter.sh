@@ -18,7 +18,7 @@ test_mistake_countin() {
   #echo $wrongstate
 
   [[ $wrongstate == 0 ]]
-  echo
+  echo $wrongstate
 
   # test 2
   #echo hier tuts

@@ -4,7 +4,7 @@ mask=""
 
 display_game_frame() {
 
-  echo in display frame
+
 
   echo $*
 
@@ -36,9 +36,8 @@ display_game_frame() {
   endings_order $_wrong $_secret
   #}
 
-  echo $ok_name
 
-  alphabet_block "$ok_name" "$bad_name"
+  alphabet_block $ok_name $bad_name
   echo
 }
 
