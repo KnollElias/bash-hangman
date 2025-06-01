@@ -1,25 +1,21 @@
-#!/usr/bin/env 
-
+#!/usr/bin/env
 
 mask=""
 
 display_game_frame() {
- 
- 
+
   echo in display frame
 
- echo $*
+  echo $*
 
-  local  _wrong=$1 _secret=$2 ok_name=$3 bad_name=$4
+  local _wrong=$1 _secret=$2 ok_name=$3 bad_name=$4
 
   echo $_wrong
   echo $_secret
 
-
   echo $ok_name
 
   clear
-
 
   case $_wrong in
     0) gallows ;; 1) wrong1 ;; 2) wrong2 ;;
@@ -32,27 +28,23 @@ display_game_frame() {
   esac
 
   echo
-  
+
   mask=$(mask_word $_secret)
   echo "Wort: $mask"
   echo
 
-  endings_order $_wrong $_secret 
+  endings_order $_wrong $_secret
   #}
 
-  echo $ok_name 
-  
+  echo $ok_name
 
-  alphabet_block "$ok_name" "$bad_name" 
+  alphabet_block "$ok_name" "$bad_name"
   echo
 }
 
+endings_order() {
 
-endings_order(){
-
-
-_wrong=$1 _secret=$2
-
+  _wrong=$1 _secret=$2
 
   [[ "$mask" != *"_"* ]] && {
     case $_wrong in
@@ -63,31 +55,19 @@ _wrong=$1 _secret=$2
       4) mistakes4 ;;
       5) mistakes5 ;;
       *)
-   #     mistakes6
+        #     mistakes6
         echo "Du hast gewonnen!"
         ;;
 
-    
     esac
 
-
-  if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
-  echo "$output"
-  fi
-
-
-    
-
-
-
+    if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+      echo "$output"
+    fi
 
     return
 
-
-
-
-
-}
+  }
 }
 
 display_startup() {
@@ -99,6 +79,5 @@ display_startup() {
   echo
   sleep 3.3
 }
-
 
 #display_game_frame 12 99

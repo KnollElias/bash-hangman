@@ -41,9 +41,6 @@ initialising() {
   while :; do
     display_game_frame "$wrongstate" "$secret" "guessed_ok" "guessed_bad"
 
-
-    
-
     # Eingabe
     while true; do
       read -rp "Rate einen Buchstaben (a-z): " -n1 ltr || {
