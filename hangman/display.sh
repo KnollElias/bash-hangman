@@ -4,8 +4,6 @@ mask=""
 
 display_game_frame() {
 
-
-
   echo $*
 
   local _wrong=$1 _secret=$2 ok_name=$3 bad_name=$4
@@ -35,7 +33,6 @@ display_game_frame() {
 
   endings_order $_wrong $_secret
   #}
-
 
   alphabet_block $ok_name $bad_name
   echo

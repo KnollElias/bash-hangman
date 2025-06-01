@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-
 bad_guess=()
 ok_guess=()
-
-
 
 mistake_countin() {
 
@@ -14,8 +11,6 @@ mistake_countin() {
   local -n ok_ref=$3
   local -n bad_ref=$4
   local -n wrong_ref=$5
-
-  
 
   if [[ "$secret" == *"$ltr"* ]]; then
     ok_ref+=("$ltr")
@@ -41,15 +36,10 @@ initialising() {
   secret="$(choose_word)"
   secret=${secret//$'\r'/}
 
- # local -n ok_ref=$1
+  # local -n ok_ref=$1
   #local -n bad_ref=$2
 
-
-
-
   wrongstate=0
-
-
 
   display_startup "$secret"
 
@@ -69,9 +59,9 @@ initialising() {
       }
       ltr=${ltr,,}
       all="${ok_guess[*]} ${bad_guess[*]}"
-            if [[ " $all " == *" $ltr "* ]]; then 
-      echo "schon geraten" 
-    fi 
+      if [[ " $all " == *" $ltr "* ]]; then
+        echo "schon geraten"
+      fi
       break
     done
 
@@ -79,21 +69,16 @@ initialising() {
 
   done
 
-
-
 }
-
-
-
 
 main() {
 
-ref_ok=()
-ref_bad=()
+  ref_ok=()
+  ref_bad=()
   initialising ref_ok ref_bad
   mistake_countin $ltr $secret ref_ok ref_bad wrongstate
 }
 
 if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
-   main
+  main
 fi
