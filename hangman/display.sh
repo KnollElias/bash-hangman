@@ -8,7 +8,6 @@ display_game_frame() {
 
   local _wrong=$1 _secret=$2 ok_name=$3 bad_name=$4
 
-
   clear
 
   case $_wrong in
@@ -38,29 +37,29 @@ endings_order() {
 
   _wrong=$1 _secret=$2
 
- # [[ "$mask" != *"_"* ]] && {
-    case $_wrong in
-      0) mistakes0 ;;
-      1) mistakes1 ;;
-      2) mistakes2 ;;
-      3) mistakes3 ;;
-      4) mistakes4 ;;
-      5) mistakes5 ;;
-      *)
-        #     mistakes6
-        echo "Du hast gewonnen!"
-        ;;
+  # [[ "$mask" != *"_"* ]] && {
+  case $_wrong in
+    0) mistakes0 ;;
+    1) mistakes1 ;;
+    2) mistakes2 ;;
+    3) mistakes3 ;;
+    4) mistakes4 ;;
+    5) mistakes5 ;;
+    *)
+      #     mistakes6
+      echo "Du hast gewonnen!"
+      ;;
 
-    esac
+  esac
 
-    if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
-      echo "$output"
-    fi
+  if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+    echo "$output"
+  fi
 
-    return
+  return
 
-#
- # }
+  #
+  # }
 }
 
 display_startup() {
