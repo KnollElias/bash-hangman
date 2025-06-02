@@ -6,12 +6,13 @@ ok_guess=()
 
 mistake_countin() {
 
+  
 
   local ltr=$1
   local secret=$2
-  local -n ok_ref=$3
-  local -n bad_ref=$4
-  local -n wrong_ref=$5
+  declare -n ok_ref=$3
+  declare -n bad_ref=$4
+  declare -n wrong_ref=$5
 
       all="${ok_ref[*]} ${bad_ref[*]}"
       if [[ " $all " == *" $ltr "* ]]; then
@@ -26,7 +27,7 @@ mistake_countin() {
   else
 
     bad_ref+=("$ltr")
-    ((wrongstate++))
+    ((wrong_ref++))
   fi
 
 
