@@ -8,10 +8,6 @@ display_game_frame() {
 
   local _wrong=$1 _secret=$2 ok_name=$3 bad_name=$4
 
-  echo $_wrong
-  echo $_secret
-
-  echo $ok_name
 
   clear
 
@@ -42,7 +38,7 @@ endings_order() {
 
   _wrong=$1 _secret=$2
 
-  [[ "$mask" != *"_"* ]] && {
+ # [[ "$mask" != *"_"* ]] && {
     case $_wrong in
       0) mistakes0 ;;
       1) mistakes1 ;;
@@ -63,7 +59,8 @@ endings_order() {
 
     return
 
-  }
+#
+ # }
 }
 
 display_startup() {

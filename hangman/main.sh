@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-bad_guess=()
-ok_guess=()
-
 mistake_countin() {
 
   local ltr=$1
@@ -11,23 +8,22 @@ mistake_countin() {
   local -n ok_ref=$3
   local -n bad_ref=$4
   local -n wrong_ref=$5
-
-  all="${ok_ref[*]} ${bad_ref[*]}"
-  if [[ " $all " == *" $ltr "* ]]; then
-    if [[ "${BASH_SOURCE[0]}" == $0 ]]; then
-      echo "schon geraten"
-    fi
-    return 0
-  fi
-
-  if [[ "$secret" == *"$ltr"* ]]; then
+ 
+ all="${ok_ref[*]} ${bad_ref[*]}"
+      if [[ " $all " == *" $ltr "* ]]; then
+      if [[ "${BASH_SOURCE[0]}" == $0 ]]; then 
+        echo "schon geraten"
+        fi 
+        return 0
+      fi
+ 
+ if [[ "$secret" == *"$ltr"* ]]; then
     ok_ref+=("$ltr")
   else
 
     bad_ref+=("$ltr")
-    ((wrongstate++))
+    ((wrong_ref++))
   fi
-
 }
 
 initialising() {
@@ -42,15 +38,16 @@ initialising() {
   secret="$(choose_word)"
   secret=${secret//$'\r'/}
 
-  # local -n ok_ref=$1
-  #local -n bad_ref=$2
-
+  guessed_ok=()
+  guessed_bad=()
   wrongstate=0
+
+#echo "main wrongstate: '$wrongstate'"
 
   display_startup "$secret"
 
   while :; do
-    display_game_frame "$wrongstate" "$secret" ok_ref bad_ref
+    display_game_frame "$wrongstate" "$secret" "guessed_ok" "guessed_bad"
 
     # Eingabe
     while true; do
@@ -64,22 +61,26 @@ initialising() {
         continue
       }
       ltr=${ltr,,}
-
+      [[ " ${guessed_ok[@]} ${guessed_bad[@]} " == *" $ltr "* ]] &&
+        {
+          echo "Schon geraten."
+          continue
+        }
       break
     done
 
-    mistake_countin "$ltr" "$secret" ok_ref bad_ref wrongstate
+    mistake_countin "$ltr" "$secret" guessed_ok guessed_bad wrongstate
 
   done
+
+  #mistake_countin "$ltr" "$secret" guessed_ok guessed_bad wrongstate
 
 }
 
 main() {
 
-  ref_ok=()
-  ref_bad=()
-  initialising ref_ok ref_bad
-  mistake_countin $ltr $secret ref_ok ref_bad wrongstate
+  initialising
+  #mistake_countin $"ltr" "$secret" guessed_ok guessed_bad wrongstate
 }
 
 if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
