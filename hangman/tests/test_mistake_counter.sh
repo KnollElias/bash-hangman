@@ -15,34 +15,26 @@ test_mistake_countin() {
 
   mistake_countin "a" "$secret" guessed_ok guessed_bad wrongstate
 
-  #echo $wrongstate
 
-  [[ $wrongstate == 0 ]]
-  echo $wrongstate
+ [[ $wrongstate == 0 ]]
+  
 
-  # test 2
-  #echo hier tuts
+# test 2
 
-  set +e
 
-  mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
+ set +e
 
+  mistake_countin "x" "$secret" ok_guess bad_guess wrongstate
   #echo $wrongstate
 
   [[ $wrongstate == 1 ]] || exit 1
 
-  mistake_countin "x" "$secret" guessed_ok guessed_bad wrongstate
+ mistake_countin "x" "$secret" ok_guess bad_guess wrongstate
 
-  # echo $wrongstate
-
-  # [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed.
+   [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed.
 
 }
 
 test_mistake_countin
 
-#mistake_countin "B" "Buchstabe"
 
-#echo ${#guessed_bad[@]}
-
-#for ()

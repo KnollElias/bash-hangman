@@ -6,11 +6,20 @@ ok_guess=()
 
 mistake_countin() {
 
+
   local ltr=$1
   local secret=$2
   local -n ok_ref=$3
   local -n bad_ref=$4
   local -n wrong_ref=$5
+
+      all="${ok_ref[*]} ${bad_ref[*]}"
+      if [[ " $all " == *" $ltr "* ]]; then
+      if [[ "${BASH_SOURCE[0]}" == $0 ]]; then 
+        echo "schon geraten"
+        fi 
+        return 0
+      fi
 
   if [[ "$secret" == *"$ltr"* ]]; then
     ok_ref+=("$ltr")
@@ -20,7 +29,10 @@ mistake_countin() {
     ((wrongstate++))
   fi
 
-  echo ${bad_ref[@]}
+
+
+
+
 
 }
 
@@ -58,10 +70,7 @@ initialising() {
         continue
       }
       ltr=${ltr,,}
-      all="${ok_guess[*]} ${bad_guess[*]}"
-      if [[ " $all " == *" $ltr "* ]]; then
-        echo "schon geraten"
-      fi
+      
       break
     done
 
