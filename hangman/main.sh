@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
+echo ich bin ein dummes arxchloch 
+
+
+
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$dir/drawings.sh"
 source "$dir/wordlist.sh"
@@ -15,10 +19,28 @@ guessed_ok=()
 guessed_bad=()
 wrongstate=0
 
+
+
+
+
+initalising(){
+
+echo ich bin ein dummes arxchloch 
+
+local -n wrong=$1
+
+
 display_startup "$secret"
 
-while :; do
-  display_game_frame guessed_ok guessed_bad "$wrongstate" "$secret"
+
+
+
+while : ; do
+  if ! display_game_frame guessed_ok guessed_bad wrongstate secret; then 
+
+  break 
+  fi 
+
 
   # Eingabe
   while true; do
@@ -32,18 +54,57 @@ while :; do
       continue
     }
     ltr=${ltr,,}
-    [[ " ${guessed_ok[*]} ${guessed_bad[*]} " == *" $ltr "* ]] &&
-      {
-        echo "Schon geraten."
-        continue
-      }
-    break
-  done
 
-  if [[ "$secret" == *"$ltr"* ]]; then
-    guessed_ok+=("$ltr")
+
+
+    mistake_treatement guessed_ok guessed_bad $ltr wrongstate
+
+    break 
+    done 
+    done 
+
+
+
+
+
+
+}
+
+
+mistake_treatement(){
+
+echo in treatemenrwerrrrrrrrrrrrrrrrrrrrrrrrrrrr
+
+local -n ok_guess=$1
+local -n bad_guess=$2
+local ltr=$3
+local -n wrong_count=$4
+
+
+[[ " ${ok_guess[*]} ${bad_guess[*]} " == *$ltr* ]] && echo schon geraten && return 
+
+ if [[ "$secret" == *$ltr* ]]; then
+    ok_guess+=("$ltr")
   else
-    guessed_bad+=("$ltr")
-    ((wrongstate++))
+    bad_guess+=("$ltr")
+    ((wrong_count++))
   fi
-done
+
+  
+
+
+
+}
+
+
+ main(){
+
+initalising wrongstate
+
+
+ }
+
+
+ if [[ "${BASH_SOURCE[0]}"==$0 ]]; then 
+ main
+ fi  
