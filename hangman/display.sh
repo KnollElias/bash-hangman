@@ -3,7 +3,7 @@
 
 display_game_frame() {
 
-echo debug: in display_game_frame
+
 
 
 
@@ -14,7 +14,7 @@ echo debug: in display_game_frame
 
   clear
 
-echo "wrong: '$_wrong'" 
+
 
   case $_wrong in
     0) gallows ;; 1) wrong1 ;; 2) wrong2 ;;
@@ -27,11 +27,11 @@ echo "wrong: '$_wrong'"
   
 
 
-  echo we are out
+
 
 
   echo
-  #local mask
+  #local ma sk
   mask=$(mask_word)
   echo "Wort: $mask"
   echo
@@ -39,6 +39,16 @@ echo "wrong: '$_wrong'"
 
   alphabet_block ok_name bad_name
 
+  
+  echo $_secret
+
+  cleaned="${mask// /}"
+  if [[ $_secret == $cleaned ]]; then 
+
+  endings_order $_wrong $mask 
+  return 1 # this is needed for the if-clause in the main module that checks if 
+  # the loop should start again
+  fi 
 
   echo
 
@@ -88,7 +98,7 @@ display_startup() {
   echo "Willkommen zu Hangman!"
   echo "Das Wort hat ${#_secret} Buchstaben."
   echo
-  sleep 0.5
+  sleep 3.3
 }
 
 
