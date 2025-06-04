@@ -26,7 +26,7 @@ test_mistake_countin() {
   mistake_treatement guessed_ok guessed_bad "x" wrongstate 
  
 
-  [[ $wrongstate == 1 ]] || exit 1
+  [[ $wrongstate == 1 ]] && echo succes || exit 1
   
  
   mistake_treatement guessed_ok guessed_bad "x" wrongstate 

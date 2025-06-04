@@ -4,15 +4,13 @@ set -uo pipefail
 
 
 
-
-
-
-
-
-
 initalising(){
 
-echo ich bin ein dummes arxchloch 
+if [[ "${BASH_SOURCE[0]}" != $0 ]]; then
+
+return
+fi 
+
 
 local -n wrong=$1
 local -n ok_word=$2
@@ -59,13 +57,15 @@ while : ; do
 mistake_treatement(){
 
 
+
 local -n ok_guess=$1
 local -n bad_guess=$2
 local ltr=$3
 local -n wrong_count=$4
 
 
-[[ " ${ok_guess[*]} ${bad_guess[*]} " == *$ltr* ]] && echo schon geraten && return 
+
+[[ " ${ok_guess[*]} ${bad_guess[*]} " == *$ltr* ]] && user_error="schon geraten" && echo $user_error && return 
 
  if [[ "$secret" == *$ltr* ]]; then
     ok_guess+=("$ltr")
@@ -108,4 +108,7 @@ initalising wrongstate guessed_ok guessed_bad secret
 
  if [[ "${BASH_SOURCE[0]}"==$0 ]]; then 
  main
+
+ else 
+ exit
  fi  

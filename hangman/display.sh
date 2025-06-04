@@ -40,7 +40,7 @@ display_game_frame() {
   alphabet_block ok_name bad_name
 
   
-  echo $_secret
+
 
   cleaned="${mask// /}"
   if [[ $_secret == $cleaned ]]; then 
