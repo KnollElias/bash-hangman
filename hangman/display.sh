@@ -84,7 +84,11 @@ local mask=$2
 
     esac
 
+
+if [[ "${BASH_SOURCE[0]}" == $0 ]]; then 
+
   echo $output
+fi 
 
 }
 }

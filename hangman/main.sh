@@ -40,7 +40,7 @@ while : ; do
 
 
 
-    mistake_treatement guessed_ok guessed_bad $ltr wrongstate
+    process_guess guessed_ok guessed_bad $ltr wrongstate
 
     break 
     done 
@@ -54,7 +54,7 @@ while : ; do
 }
 
 
-mistake_treatement(){
+process_guess(){
 
 
 
@@ -65,7 +65,16 @@ local -n wrong_count=$4
 
 
 
-[[ " ${ok_guess[*]} ${bad_guess[*]} " == *$ltr* ]] && user_error="schon geraten" && echo $user_error && return 
+[[ " ${ok_guess[*]} ${bad_guess[*]} " == *$ltr* ]] && user_error="schon geraten" && {
+
+if [[ "${BASH_SOURCE[0]}" == $0 ]]; then
+echo $user_error  
+fi 
+
+
+
+
+} &&return
 
  if [[ "$secret" == *$ltr* ]]; then
     ok_guess+=("$ltr")
