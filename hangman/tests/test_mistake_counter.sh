@@ -14,7 +14,9 @@ test_mistake_countin() {
 
   # test 1
 
-  mistake_treatement guessed_ok guessed_bad $ltr wrongstate
+  process_guess guessed_ok guessed_bad $ltr wrongstate
+
+  
  
 
   [[ $wrongstate == 0 ]] 
@@ -23,13 +25,13 @@ test_mistake_countin() {
 
   set +e
 
-  mistake_treatement guessed_ok guessed_bad "x" wrongstate 
+  process_guess guessed_ok guessed_bad "x" wrongstate 
  
 
-  [[ $wrongstate == 1 ]] && echo succes || exit 1
+  [[ $wrongstate == 1 ]]  || exit 1
   
  
-  mistake_treatement guessed_ok guessed_bad "x" wrongstate 
+  process_guess guessed_ok guessed_bad "x" wrongstate 
 
   [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed.
   

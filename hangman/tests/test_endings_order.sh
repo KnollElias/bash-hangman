@@ -19,7 +19,7 @@ test_endings_order() {
 
   endings_order $_wrong $_secret
 
-  [[ $output == "Geschafft, aber mit vielen Fehlern. Übung macht den Meister." ]] && echo succes || echo failed 
+  [[ $output == "Geschafft, aber mit vielen Fehlern. Übung macht den Meister." ]]  || echo failed 
 
   ## test2: 0 mistakes
 
@@ -30,7 +30,7 @@ test_endings_order() {
 
  
 
-  [[ $output == "Perfekt! 👍 Du hast das Wort ohne Fehler erraten." ]]  && echo succes || echo failed 
+  [[ $output == "Perfekt! 👍 Du hast das Wort ohne Fehler erraten." ]]  || echo failed 
  
 }
 

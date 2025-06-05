@@ -10,7 +10,7 @@ ltr="a"
 wrong_value=0 
 
 
-mistake_treatement ok_test bad_test $ltr wrong_value 
+process_guess ok_test bad_test $ltr wrong_value 
 
 if ! [[ ${#ok_test[@]} == 0 &&  ${#bad_test[@]} == 1 ]]; then  # testing if the array if the arrays
 # are not manipulated. 
@@ -23,7 +23,7 @@ fi
 
 
 
-[[ $user_error == "schon geraten" ]] && echo succes || exit 1 # more safety
+[[ $user_error == "schon geraten" ]] || exit 1 # more safety
 
 
 
