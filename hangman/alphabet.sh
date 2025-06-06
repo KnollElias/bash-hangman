@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 alphabet_block() {
 
-
   local -n ok_arr=$1 bad_arr=$2
 
-  
   local l i=0
   for l in {a..z}; do
     if [[ " ${ok_arr[*]} " == *" $l "* ]]; then

@@ -31,8 +31,8 @@ display_game_frame() {
   alphabet_block ok_name bad_name
 
   cleaned="${mask// /}"
-  if [[ $_secret == $cleaned ]]; then 
-    endings_order $_wrong $mask 
+  if [[ $_secret == $cleaned ]]; then
+    endings_order $_wrong $mask
     return 1
   fi
 
@@ -58,9 +58,9 @@ endings_order() {
         ;;
     esac
 
-    if [[ "${BASH_SOURCE[0]}" == $0 ]]; then 
+    if [[ "${BASH_SOURCE[0]}" == $0 ]]; then
       echo $output
-    fi 
+    fi
   }
 }
 
