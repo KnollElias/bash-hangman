@@ -12,6 +12,8 @@ wrong_value=0
 
 process_guess ok_test bad_test $ltr wrong_value 
 
+
+
 if ! [[ ${#ok_test[@]} == 0 &&  ${#bad_test[@]} == 1 ]]; then  # testing if the array if the arrays
 # are not manipulated. 
 exit 1
