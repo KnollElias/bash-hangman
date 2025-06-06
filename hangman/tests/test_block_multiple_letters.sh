@@ -7,7 +7,8 @@ source ../main.sh
 ok_test=()
 bad_test=(a)
 ltr="a"
-wrong_value=0 
+wrong_value=0
+
 
 
 process_guess ok_test bad_test $ltr wrong_value 
