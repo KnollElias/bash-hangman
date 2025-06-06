@@ -13,31 +13,17 @@ test_mistake_countin() {
   local secret="Apfelsaft"
 
   # test 1
-
   process_guess guessed_ok guessed_bad $ltr wrongstate
-
-  
- 
-
-  [[ $wrongstate == 0 ]] 
+  [[ $wrongstate == 0 ]]
 
   # test 2
-
   set +e
 
-  process_guess guessed_ok guessed_bad "x" wrongstate 
- 
+  process_guess guessed_ok guessed_bad "x" wrongstate
+  [[ $wrongstate == 1 ]] || exit 1
 
-  [[ $wrongstate == 1 ]]  || exit 1
-  
- 
-  process_guess guessed_ok guessed_bad "x" wrongstate 
-
-  [[ $wrongstate == 1 ]] || exit 1 #should remaim the same because x was already guessed.
-  
-
-
-
+  process_guess guessed_ok guessed_bad "x" wrongstate
+  [[ $wrongstate == 1 ]] || exit 1 # should remain the same because x was already guessed.
 }
 
 test_mistake_countin
