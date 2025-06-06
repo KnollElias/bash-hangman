@@ -65,18 +65,17 @@ local -n wrong_count=$4
 
 
 
+if [[ " ${ok_guess[*]} ${bad_guess[*]} " == *$ltr* ]]; then 
 
-
-[[ " ${ok_guess[*]} ${bad_guess[*]} " == *$ltr* ]] && user_error="schon geraten" && {
-
+user_error="schon geraten"
 if [[ "${BASH_SOURCE[0]}" == $0 ]]; then
 echo $user_error  
+fi 
 sleep 2
-return 
+return
 fi 
 
-}
-echo still in process guess 
+
 
  if [[ "$secret" == *$ltr* ]]; then
     ok_guess+=("$ltr")
@@ -87,9 +86,9 @@ echo still in process guess
 
   
 
-
-
 }
+
+
 
 
  main(){
