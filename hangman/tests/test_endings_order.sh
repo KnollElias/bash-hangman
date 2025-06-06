@@ -15,21 +15,15 @@ test_endings_order() {
   _wrong=3
   _secret="affe"
 
-  ## test1 : 3 mistakes
-
+  ## test1: 3 mistakes
   endings_order $_wrong $_secret
-
-  [[ $output == "Geschafft, aber mit vielen Fehlern. Übung macht den Meister." ]]
+  [[ $output == "Geschafft, aber mit vielen Fehlern. Übung macht den Meister." ]] || echo failed 
 
   ## test2: 0 mistakes
-
   _wrong=0
   _secret="affe"
-
   endings_order $_wrong $_secret
-
-  [[ $output == "Perfekt! 👍 Du hast das Wort ohne Fehler erraten." ]]
-
+  [[ $output == "Perfekt! 👍 Du hast das Wort ohne Fehler erraten." ]] || echo failed 
 }
 
 test_endings_order

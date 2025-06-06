@@ -1,65 +1,67 @@
 #!/usr/bin/env
 
-mask=""
-
 display_game_frame() {
-
-  echo $*
-
-  local _wrong=$1 _secret=$2 ok_name=$3 bad_name=$4
+  local -n ok_name=$1
+  local -n bad_name=$2
+  local -n _wrong=$3
+  local -n _secret=$4
 
   clear
 
   case $_wrong in
-    0) gallows ;; 1) wrong1 ;; 2) wrong2 ;;
-    3) wrong3 ;; 4) wrong4 ;; 5) wrong5 ;;
+    0) gallows ;;
+    1) wrong1 ;;
+    2) wrong2 ;;
+    3) wrong3 ;;
+    4) wrong4 ;;
+    5) wrong5 ;;
     6)
       wrong6
       echo "Du bist verhangen - das Wort war: $_secret"
-      exit
+      return 1
       ;;
   esac
 
   echo
 
-  mask=$(mask_word $_secret)
+  mask=$(mask_word)
   echo "Wort: $mask"
   echo
 
-  endings_order $_wrong $_secret
-  #}
+  alphabet_block ok_name bad_name
 
-  alphabet_block $ok_name $bad_name
+  cleaned="${mask// /}"
+  if [[ $_secret == $cleaned ]]; then 
+    endings_order $_wrong $mask 
+    return 1
+  fi
+
   echo
+  return 0
 }
 
 endings_order() {
+  local wrong=$1
+  local mask=$2
 
-  _wrong=$1 _secret=$2
+  [[ "$mask" != *"_"* ]] && {
+    case $_wrong in
+      0) mistakes0 ;;
+      1) mistakes1 ;;
+      2) mistakes2 ;;
+      3) mistakes3 ;;
+      4) mistakes4 ;;
+      5) mistakes5 ;;
+      *)
+        mistakes6
+        echo "Du hast gewonnen!"
+        ;;
+    esac
 
-  # [[ "$mask" != *"_"* ]] && {
-  case $_wrong in
-    0) mistakes0 ;;
-    1) mistakes1 ;;
-    2) mistakes2 ;;
-    3) mistakes3 ;;
-    4) mistakes4 ;;
-    5) mistakes5 ;;
-    *)
-      #     mistakes6
-      echo "Du hast gewonnen!"
-      ;;
-
-  esac
-
-  if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
-    echo "$output"
-  fi
-
-  return
-
-  #
-  # }
+    if [[ "${BASH_SOURCE[0]}" == $0 ]]; then 
+      echo $output
+    fi 
+  }
 }
 
 display_startup() {
@@ -71,5 +73,3 @@ display_startup() {
   echo
   sleep 3.3
 }
-
-#display_game_frame 12 99

@@ -1,58 +1,24 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-bad_guess=()
-ok_guess=()
-
-mistake_countin() {
-
-  local ltr=$1
-  local secret=$2
-  declare -n ok_ref=$3
-  declare -n bad_ref=$4
-  declare -n wrong_ref=$5
-
-  all="${ok_ref[*]} ${bad_ref[*]}"
-  if [[ " $all " == *" $ltr "* ]]; then
-    if [[ "${BASH_SOURCE[0]}" == $0 ]]; then
-      echo "schon geraten"
-    fi
-    return 0
-  fi
-
-  if [[ "$secret" == *"$ltr"* ]]; then
-    ok_ref+=("$ltr")
-  else
-
-    bad_ref+=("$ltr")
-    ((wrong_ref++))
-  fi
-
-}
-
 initialising() {
 
-  dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-  source "$dir/drawings.sh"
-  source "$dir/wordlist.sh"
-  source "$dir/alphabet.sh"
-  source "$dir/display.sh"
-  source "$dir/endings.sh"
+  if [[ "${BASH_SOURCE[0]}" != $0 ]]; then
+    return
+  fi 
 
-  secret="$(choose_word)"
-  secret=${secret//$'\r'/}
+  local -n wrong=$1
+  local -n ok_word=$2
+  local -n bad_word=$3
+  local -n _secret=$4
 
-  # local -n ok_ref=$1
-  #local -n bad_ref=$2
-
-  wrongstate=0
-
-  display_startup "$secret"
+  display_startup "$_secret"
 
   while :; do
-    display_game_frame "$wrongstate" "$secret" ok_ref bad_ref
+    if ! display_game_frame guessed_ok guessed_bad wrongstate secret; then 
+      break 
+    fi 
 
-    # Eingabe
     while true; do
       read -rp "Rate einen Buchstaben (a-z): " -n1 ltr || {
         echo
@@ -65,23 +31,54 @@ initialising() {
       }
       ltr=${ltr,,}
 
-      break
-    done
+      process_guess guessed_ok guessed_bad "$ltr" wrongstate
+      break 
+    done 
+  done 
+}
 
-    mistake_countin "$ltr" "$secret" ok_ref bad_ref wrongstate
+process_guess() {
+  local -n ok_guess=$1
+  local -n bad_guess=$2
+  local ltr=$3
+  local -n wrong_count=$4
 
-  done
+  [[ " ${ok_guess[*]} ${bad_guess[*]} " == *" $ltr "* ]] && {
+    user_error="schon geraten"
+    if [[ "${BASH_SOURCE[0]}" == $0 ]]; then
+      echo "$user_error"  
+    fi 
+    return
+  }
 
+  if [[ "$secret" == *"$ltr"* ]]; then
+    ok_guess+=("$ltr")
+  else
+    bad_guess+=("$ltr")
+    ((wrong_count++))
+  fi
 }
 
 main() {
+  dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  source "$dir/drawings.sh"
+  source "$dir/wordlist.sh"
+  source "$dir/alphabet.sh"
+  source "$dir/display.sh"
+  source "$dir/endings.sh"
 
-  ref_ok=()
-  ref_bad=()
-  initialising ref_ok ref_bad
-  mistake_countin $ltr $secret ref_ok ref_bad wrongstate
+  secret="$(choose_word)"
+  secret=${secret//$'\r'/}
+
+  guessed_ok=()
+  guessed_bad=()
+  wrongstate=0
+
+  initialising wrongstate guessed_ok guessed_bad secret
 }
 
-if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then 
   main
+else 
+  exit
 fi
