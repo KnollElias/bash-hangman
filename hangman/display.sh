@@ -87,7 +87,7 @@ local mask=$2
 
 if [[ "${BASH_SOURCE[0]}" == $0 ]]; then 
 
-  echo $output
+  echo $ending_output
 fi 
 
 }
