@@ -1,74 +1,185 @@
 {
-  "id": "root",
+  "id": "7af88238-c78b-842c-23fe-ae45fe1d",
   "type": "InsertNode",
   "followElement": {
-    "id": "main",
+    "id": "b0473bfc-a371-f49b-9f90-4a88e2c7",
     "type": "FunctionNode",
     "text": "main",
     "parameters": [],
     "followElement": {
-      "id": "initvars",
-      "type": "TaskNode",
-      "text": "ref_ok = []\nref_bad = []",
-      "followElement": {
-        "id": "call_init",
-        "type": "TaskNode",
-        "text": "initialising(ref_ok, ref_bad)",
-        "followElement": {
-          "id": "endmain",
-          "type": "TaskNode",
-          "text": "Ende",
-          "followElement": null
-        }
-      }
-    },
-    "child": {
-      "id": "initialising_func",
+      "id": "2297eca3-ab2d-ca36-cff2-3433cc9b",
       "type": "InsertNode",
       "followElement": {
-        "id": "initialising",
+        "id": "972cc30a-d298-b5d7-4b4c-c442c3aa",
         "type": "FunctionNode",
-        "text": "initialising",
-        "parameters": ["ok_ref", "bad_ref"],
-        "followElement": null,
-        "child": {
-          "id": "loadfiles",
-          "type": "TaskNode",
-          "text": "Dateien laden (drawings.sh, wordlist.sh, ...)",
+        "text": "Initialisierung",
+        "parameters": [],
+        "followElement": {
+          "id": "2811d059-ae9e-65a0-f5b8-1ccbb45a",
+          "type": "InsertNode",
           "followElement": {
-            "id": "secretword",
+            "id": "52f2111b-51b1-d871-bda6-88e47308",
             "type": "TaskNode",
-            "text": "secret = choose_word()",
+            "text": "Ende",
             "followElement": {
-              "id": "wrongstate",
-              "type": "TaskNode",
-              "text": "wrongstate = 0",
+              "id": "3672e1d5-276e-a6ab-5f47-240c2873",
+              "type": "InsertNode",
+              "followElement": null
+            }
+          }
+        },
+        "child": {
+          "id": "ee3e4bc1-82ba-6a76-9f1a-1a5e0c2e",
+          "type": "InsertNode",
+          "followElement": {
+            "id": "b4ff60c8-90d4-64f9-2d82-2597cc10",
+            "type": "TaskNode",
+            "text": "Dateien Laden",
+            "followElement": {
+              "id": "c0acb2aa-8338-7186-c682-1215fcb4",
+              "type": "InsertNode",
               "followElement": {
-                "id": "displaystartup",
+                "id": "3527361a-e759-b981-b57e-1aba7ca4",
                 "type": "TaskNode",
-                "text": "display_startup(secret)",
+                "text": "secret = choose_word",
                 "followElement": {
-                  "id": "whilegame",
-                  "type": "HeadLoopNode",
-                  "text": "while true (Spiel läuft)",
-                  "followElement": null,
-                  "child": {
-                    "id": "gameframe",
+                  "id": "3af82b15-1fef-9484-6717-11131a3a",
+                  "type": "InsertNode",
+                  "followElement": {
+                    "id": "afaac602-d324-1cba-faf7-90f2f6e7",
                     "type": "TaskNode",
-                    "text": "display_game_frame(wrongstate, secret, ok_ref, bad_ref)",
+                    "text": "wrongstate = 0",
                     "followElement": {
-                      "id": "eingabe",
-                      "type": "InputNode",
-                      "text": "Rate einen Buchstaben (a-z):",
+                      "id": "b4a89cf1-95d4-9dd8-4e9e-05edc2a0",
+                      "type": "InsertNode",
                       "followElement": {
-                        "id": "checkletter",
+                        "id": "27356e00-fc2b-eb34-2e9d-15f2ea67",
                         "type": "TaskNode",
-                        "text": "mistake_countin(ltr, secret, ok_ref, bad_ref, wrongstate)",
+                        "text": "display_startup(secret)",
                         "followElement": {
-                          "id": "endloop",
-                          "type": "TaskNode",
-                          "text": "Prüfe Spielende (optional)",
-                          "followElement": null
+                          "id": "174ef5a3-0f07-7e0f-69cb-54b3ecef",
+                          "type": "InsertNode",
+                          "followElement": {
+                            "id": "fb1ffd05-521f-4e7e-7b2d-f942a628",
+                            "type": "HeadLoopNode",
+                            "text": "While true",
+                            "followElement": {
+                              "id": "cc357735-32bf-cecf-fdf6-dc0bb4ad",
+                              "type": "InsertNode",
+                              "followElement": null
+                            },
+                            "child": {
+                              "id": "4e5a6faa-9576-380d-24dd-035b4c11",
+                              "type": "InsertNode",
+                              "followElement": {
+                                "id": "f762dd24-0788-c00f-e51c-63ca93bd",
+                                "type": "TaskNode",
+                                "text": "Anweisung",
+                                "followElement": {
+                                  "id": "2377376a-04db-3a6a-98d4-459405be",
+                                  "type": "InsertNode",
+                                  "followElement": {
+                                    "id": "6c269948-16c3-2057-b9b2-9462ccd4",
+                                    "type": "HeadLoopNode",
+                                    "text": "While true",
+                                    "followElement": {
+                                      "id": "3d7ad159-d374-adae-2d3a-cc1ec6f5",
+                                      "type": "InsertNode",
+                                      "followElement": null
+                                    },
+                                    "child": {
+                                      "id": "eff12129-c810-1031-2438-ff4986eb",
+                                      "type": "InsertNode",
+                                      "followElement": {
+                                        "id": "71011e89-57aa-5375-de71-6efcdef5",
+                                        "type": "InputNode",
+                                        "text": "Rate einen Buchstabe (a-z):",
+                                        "followElement": {
+                                          "id": "ed68b5d3-ce7c-36a1-a170-ae867a35",
+                                          "type": "InsertNode",
+                                          "followElement": {
+                                            "id": "24bad4c0-22c8-2d19-3151-bda05e22",
+                                            "type": "BranchNode",
+                                            "text": "Buchstabe im Wort erhalten?",
+                                            "followElement": {
+                                              "id": "01e54e8e-04bf-f782-7006-26e2a825",
+                                              "type": "InsertNode",
+                                              "followElement": {
+                                                "id": "7959354d-4847-c89a-2c1c-e6c63764",
+                                                "type": "BranchNode",
+                                                "text": "Wurde dieser Buchstabe schon geraten?",
+                                                "followElement": {
+                                                  "id": "74983a9b-c945-f452-a743-87843b3c",
+                                                  "type": "InsertNode",
+                                                  "followElement": null
+                                                },
+                                                "trueChild": {
+                                                  "id": "934ab219-b051-c751-9d65-c1332dc9",
+                                                  "type": "InsertNode",
+                                                  "followElement": {
+                                                    "id": "dfd9e1e6-f079-a32d-d15e-7f3258e0",
+                                                    "type": "OutputNode",
+                                                    "text": "schon geraten",
+                                                    "followElement": {
+                                                      "id": "1ae1d1cb-79d6-dd1e-891c-158c4a06",
+                                                      "type": "InsertNode",
+                                                      "followElement": null
+                                                    }
+                                                  }
+                                                },
+                                                "falseChild": {
+                                                  "id": "34e81d23-1090-a284-68ef-70e73e7b",
+                                                  "type": "InsertNode",
+                                                  "followElement": {
+                                                    "id": "ed30166f-5205-3155-f0e7-0231b4b5",
+                                                    "type": "TaskNode",
+                                                    "text": "breake",
+                                                    "followElement": {
+                                                      "id": "25e6f255-c702-dde3-0403-3ca59b61",
+                                                      "type": "InsertNode",
+                                                      "followElement": null
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "trueChild": {
+                                              "id": "09b4ad58-435a-c42a-07f7-02531908",
+                                              "type": "InsertNode",
+                                              "followElement": {
+                                                "id": "8fbfa869-211e-3650-7226-78f6697b",
+                                                "type": "TaskNode",
+                                                "text": "Anweisung",
+                                                "followElement": {
+                                                  "id": "8e33be09-2493-0ce2-b862-7ab85f00",
+                                                  "type": "InsertNode",
+                                                  "followElement": null
+                                                }
+                                              }
+                                            },
+                                            "falseChild": {
+                                              "id": "2afe9617-ad5e-3bb8-20f1-0219bf04",
+                                              "type": "InsertNode",
+                                              "followElement": {
+                                                "id": "2a9957ef-4e37-7d07-4a7f-a53631aa",
+                                                "type": "TaskNode",
+                                                "text": "Anweisung",
+                                                "followElement": {
+                                                  "id": "6082d4f1-8672-c6a5-6e98-51a578f8",
+                                                  "type": "InsertNode",
+                                                  "followElement": null
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -81,91 +192,31 @@
       }
     },
     "child": {
-      "id": "mistakecountin_func",
+      "id": "b7ac8057-5ec5-6928-a6c7-fb65dd2f",
       "type": "InsertNode",
       "followElement": {
-        "id": "mistake_countin",
-        "type": "FunctionNode",
-        "text": "mistake_countin",
-        "parameters": ["ltr", "secret", "ok_ref", "bad_ref", "wrongstate"],
-        "followElement": null,
-        "child": {
-          "id": "wasgeraten",
-          "type": "BranchNode",
-          "text": "Wurde Buchstabe schon geraten?",
-          "followElement": null,
-          "trueChild": {
-            "id": "schongeraten",
-            "type": "OutputNode",
-            "text": "schon geraten",
-            "followElement": null
-          },
-          "falseChild": {
-            "id": "imbuch",
-            "type": "BranchNode",
-            "text": "Buchstabe im secret?",
-            "followElement": null,
-            "trueChild": {
-              "id": "okref",
-              "type": "TaskNode",
-              "text": "ok_ref += Buchstabe",
-              "followElement": null
-            },
-            "falseChild": {
-              "id": "badref",
-              "type": "TaskNode",
-              "text": "bad_ref += Buchstabe; wrongstate++",
-              "followElement": null
-            }
-          }
-        }
-      },
-      "child": {
-        "id": "display_func",
-        "type": "InsertNode",
+        "id": "967447a4-063d-4b45-db52-e88d2c15",
+        "type": "TaskNode",
+        "text": "ref_ok = []",
         "followElement": {
-          "id": "display_game_frame",
-          "type": "FunctionNode",
-          "text": "display_game_frame",
-          "parameters": ["wrongstate", "secret", "ok_ref", "bad_ref"],
-          "followElement": null,
-          "child": {
-            "id": "anzeigestand",
-            "type": "TaskNode",
-            "text": "Gib aktuellen Stand und Fehlerbild aus",
-            "followElement": null
-          }
-        },
-        "child": {
-          "id": "display_startup_func",
+          "id": "3ac014fd-3a9e-d7e7-e316-cf911799",
           "type": "InsertNode",
           "followElement": {
-            "id": "display_startup",
-            "type": "FunctionNode",
-            "text": "display_startup",
-            "parameters": ["secret"],
-            "followElement": null,
-            "child": {
-              "id": "showstart",
-              "type": "TaskNode",
-              "text": "Starte Darstellung",
-              "followElement": null
-            }
-          },
-          "child": {
-            "id": "choose_word_func",
-            "type": "InsertNode",
+            "id": "7dde9b51-b065-4064-f909-a4e69b3c",
+            "type": "TaskNode",
+            "text": "ref_bad = []",
             "followElement": {
-              "id": "choose_word",
-              "type": "FunctionNode",
-              "text": "choose_word",
-              "parameters": [],
-              "followElement": null,
-              "child": {
-                "id": "wählewort",
+              "id": "3c4204e4-82c4-592a-a6cb-47db7001",
+              "type": "InsertNode",
+              "followElement": {
+                "id": "c784abf6-4041-0f1c-ea4a-aa2a74c0",
                 "type": "TaskNode",
-                "text": "Wählt ein zufälliges Wort aus wordlist",
-                "followElement": null
+                "text": "Initialisierung (ref_ok, ref_bad)",
+                "followElement": {
+                  "id": "b1fd28ba-a230-c675-598f-75396e1e",
+                  "type": "InsertNode",
+                  "followElement": null
+                }
               }
             }
           }
